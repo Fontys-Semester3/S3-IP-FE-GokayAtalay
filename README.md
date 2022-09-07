@@ -1,7 +1,7 @@
 
 <h1 align="center">
   <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://media.discordapp.net/attachments/906310264285200407/1016999605063405578/unknown.png" alt="Markdownify" width="800"></a>
+  <img src="https://media.discordapp.net/attachments/906310264285200407/1016999605063405578/unknown.png" alt="Markdownify" width="800">
   <br>
   <!-- Workethic -->
   <br>
