@@ -11,11 +11,10 @@
 
 
 <p align="center">
+  <a href="#about">About</a> •
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
   <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
+  <a href="#backend">Backend</a> •
   <a href="#license">License</a>
 </p>
 
@@ -35,26 +34,6 @@ After that the business owner and worker come into contact and can discuss wheth
 
 ## Key Features
 
-<!--
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
-
--->
 * OAuth 2 - Secure way of gaining access to the platform, provided by Google
 * Creating tasks - Open a task and let people know what you need handled!
 * Worker search - Go through a list of the workers
