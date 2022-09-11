@@ -1,9 +1,9 @@
 
 <h1 align="center">
   <br>
-  <img src="https://media.discordapp.net/attachments/906310264285200407/1016999605063405578/unknown.png" alt="Markdownify" width="800">
+   <!-- <img src="https://media.discordapp.net/attachments/906310264285200407/1016999605063405578/unknown.png" alt="Markdownify" width="800"> -->
   <br>
-  <!-- Workethic -->
+  Workethic
   <br>
 </h1>
 
