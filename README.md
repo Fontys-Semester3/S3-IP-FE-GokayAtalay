@@ -50,7 +50,7 @@ This software uses the following:
 
 ## Backend
 
-This repo contains the frontend portion of the project. If you would like to see the backend, visit [Distributed-Systems-BE](https://github.com/TendezaDev/distributed-systems-BE)
+This repo contains the frontend portion of the project. If you would like to see the backend, visit [Distributed-Systems-BE](https://github.com/Fontys-Semester3/S3-IP-BE-GokayAtalay)
 
 ## License
 
