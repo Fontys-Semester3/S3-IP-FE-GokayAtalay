@@ -45,7 +45,6 @@ This software uses the following:
 
 - [React](https://reactjs.org/)
 - [Laravel](https://laravel.com/)
-- [Inertia.js](https://inertiajs.com/)
 - [Tailwind](https://tailwindcss.com/)
 
 ## Backend
