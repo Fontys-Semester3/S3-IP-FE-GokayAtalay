@@ -46,6 +46,7 @@ This software uses the following:
 - [React](https://reactjs.org/)
 - [Laravel](https://laravel.com/)
 - [Tailwind](https://tailwindcss.com/)
+- [Spring Boot](https://spring.io/projects/spring-boot)
 
 ## Backend
 
