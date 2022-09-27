@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import Login from './Pages/Login';
 import Posts from './Pages/Posts';
 import Navbar from './Components/Navbar';
-
+/* global gapi */
 export default function App(first) {
   const [stateUser, setStateUser] = useState(null);
   const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function App(first) {
         {
           stateUser == null         ?
             <Login value={value}/>  :
-            <Posts value={value}/>
+            <Login value={value}/>
         }
         
       </userContext.Provider>

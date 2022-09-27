@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { useContext } from 'react';
 import { userContext } from '../userContext';
-
+import { useState } from 'react';
+/* global gapi */
 export default function Login() {
-    const CLIENT_ID = '167499127647-vont3e759gg3g0902vig4c5vejd87cov.apps.googleusercontent.com';
+    const [stateTokenClient, setStateTokenClient] = useState({});
     const value = useContext(userContext);
     console.log(value);
 
@@ -28,7 +29,7 @@ export default function Login() {
     async function handleJWT(credentialResponse) {
         const credential = credentialResponse.credential;
         value.userLogin(parseJwt(credential));
-        const response = await handleCookie(credential);
+        //const response = await handleCookie(credential);
     }
 
     async function handleCookie(data){
@@ -39,8 +40,35 @@ export default function Login() {
         const responseAPI = await axios.post('http://127.0.0.1:8000/');
     }
 
+    function doSomething(){
+      stateTokenClient.requestAccessToken();
+    }
+
+    useEffect(() => {
+      console.log('I hit the effect');
+      /* global google */
+      const client = google.accounts.oauth2.initTokenClient({
+        client_id: process.env.REACT_APP_CLIENT_ID,
+        scope: 'https://www.googleapis.com/auth/userinfo.profile',
+        callback: (tokenResponse) => {
+          console.log('man das some fat response');
+          console.log(tokenResponse);
+
+          if (tokenResponse && tokenResponse.access_token) {
+            gapi.client.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
+            console.log('CLIENT');
+            console.log(gapi.client);
+            //gapi.client.load('calendar', 'v3', listUpcomingEvents);
+          }
+        },
+      });
+
+      setStateTokenClient(client);
+    }, []);
+
   return (
-    <GoogleOAuthProvider clientId={CLIENT_ID}>
+    <>
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
         <GoogleLogin
           buttonText="Login with Google"
           isSignedIn={true}
@@ -54,5 +82,10 @@ export default function Login() {
           }}
         />
       </GoogleOAuthProvider>
+
+      <input type="submit" onClick={doSomething} value="Cash Gang"/>
+    </>
+    
+
   )
 }
