@@ -1,14 +1,16 @@
-import { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
 import { useNavigate } from 'react-router-dom';
+import AccountService from './Services/AccountService';
+import logo from './logo.svg';
+import axios from 'axios';
 import Login from './Pages/Login';
 import Posts from './Pages/Posts';
 import Navbar from './Components/Navbar';
-/* global gapi */
-export default function App(first) {
+import './App.css';
+
+export default function App() {
+  const service = new AccountService();
   const [stateUser, setStateUser] = useState(null);
   const navigate = useNavigate();
 
@@ -29,17 +31,27 @@ export default function App(first) {
     setStateUser(null);
     setStateUser(null);
   }
+
+  useEffect(() => {
+    const user = service.getUserSession();
+
+    if(user != null){
+      value.user = user;
+      navigate('/posts');
+    }
+    console.log('EFFECT APP.JS');
+    console.log(value.user);
+  }, []);
+  
   
   return (
     <div className="App">
       <userContext.Provider value={value}>
-        <Navbar value={value}/>
         {
           stateUser == null         ?
             <Login value={value}/>  :
-            <Login value={value}/>
+            <Posts value={value}/>
         }
-        
       </userContext.Provider>
     </div>
   );
