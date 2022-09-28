@@ -4,6 +4,7 @@ import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 import { useContext } from 'react';
 import { userContext } from '../userContext';
 import { useState } from 'react';
+import { LoginButton } from '../Components/LoginButton';
 /* global gapi */
 export default function Login() {
     const [stateTokenClient, setStateTokenClient] = useState({});
@@ -44,48 +45,13 @@ export default function Login() {
       stateTokenClient.requestAccessToken();
     }
 
-    useEffect(() => {
-      console.log('I hit the effect');
-      /* global google */
-      const client = google.accounts.oauth2.initTokenClient({
-        client_id: process.env.REACT_APP_CLIENT_ID,
-        scope: 'https://www.googleapis.com/auth/userinfo.profile',
-        callback: (tokenResponse) => {
-          console.log('man das some fat response');
-          console.log(tokenResponse);
-
-          if (tokenResponse && tokenResponse.access_token) {
-            gapi.client.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY);
-            console.log('CLIENT');
-            console.log(gapi.client);
-            //gapi.client.load('calendar', 'v3', listUpcomingEvents);
-          }
-        },
-      });
-
-      setStateTokenClient(client);
-    }, []);
-
   return (
     <>
       <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
-        <GoogleLogin
-          buttonText="Login with Google"
-          isSignedIn={true}
-          useOneTap
-          auto_select
-          onSuccess={credentialResponse => {
-            handleJWT(credentialResponse);
-          }}
-          onError={() => {
-            console.log('Login Failed');
-          }}
-        />
-      </GoogleOAuthProvider>
+        <LoginButton value={value}/>
+      </GoogleOAuthProvider> 
 
       <input type="submit" onClick={doSomething} value="Cash Gang"/>
-    </>
-    
-
+    </> 
   )
 }
