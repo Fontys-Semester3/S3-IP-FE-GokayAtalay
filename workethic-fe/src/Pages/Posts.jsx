@@ -12,7 +12,7 @@ export default function Posts() {
   const navigate = useNavigate();
 
   async function GetPosts(){
-    const response = await axios.get('http://127.0.0.1:8080/posts/');
+    const response = await axios.get('http://127.0.0.1:8080/tasks/');
     setStatePosts(response.data);
   }
 
