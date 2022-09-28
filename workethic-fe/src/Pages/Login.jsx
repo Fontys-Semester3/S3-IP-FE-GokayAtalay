@@ -14,7 +14,7 @@ export default function Login() {
   return (
     <>
       <Navbar value={value}/>
-      <div className='w-full h-[80vh] flex justify-center items-center z-0'>
+      <div className='w-full h-[80vh] flex justify-center items-center'>
         <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
           <LoginButton value={value}/>
         </GoogleOAuthProvider>
