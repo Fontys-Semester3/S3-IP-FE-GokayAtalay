@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
-import { useNavigate } from 'react-router-dom';
 import AccountService from './Services/AccountService';
 import logo from './logo.svg';
 import axios from 'axios';

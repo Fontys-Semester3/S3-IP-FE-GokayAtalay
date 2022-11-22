@@ -1,6 +1,5 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { userContext } from '../userContext';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar'
 import AccountService from '../Services/AccountService';
 import axios from 'axios';

@@ -3,18 +3,17 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { userContext } from '../userContext';
 import GoogleButton from "react-google-button";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import AccountService from "../Services/AccountService";
 
 export const LoginButton = () => {
     const service = new AccountService();
     const value = useContext(userContext);
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
 
     function handleLogin(user){
         value.userLogin(user);
         service.setUserSession(JSON.stringify(user));
-        navigate('/posts');
+        //navigate('/posts');
     }
 
     const googleLogin = useGoogleLogin({
