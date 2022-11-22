@@ -12,7 +12,7 @@ import './App.css';
 export default function App() {
   const service = new AccountService();
   const [stateUser, setStateUser] = useState(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const value = {
     user: stateUser,
@@ -35,11 +35,11 @@ export default function App() {
   useEffect(() => {
     const user = service.getUserSession();
 
-    if(user != null){
-      value.user = user;
-      navigate('/posts');
-    }
-    console.log('EFFECT APP.JS');
+    // if(user != null){
+    //   value.user = user;
+    //   navigate('/posts');
+    // }
+    // console.log('EFFECT APP.JS');
     console.log(value.user);
   }, []);
   
