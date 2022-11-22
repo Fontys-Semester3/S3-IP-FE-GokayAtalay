@@ -9,7 +9,6 @@ export default function Posts() {
   const [statePosts, setStatePosts] = useState([]);
   const service = new AccountService();
   const value = useContext(userContext);
-  const navigate = useNavigate();
 
   async function GetPosts(){
     const response = await axios.get('http://127.0.0.1:8080/tasks/');
