@@ -1,6 +1,5 @@
 import { React, useState, useContext, useEffect } from 'react'
 import { userContext } from '../userContext';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/Navbar'
 import AccountService from '../Services/AccountService';
 import axios from 'axios';
@@ -9,7 +8,6 @@ export default function Posts() {
   const [statePosts, setStatePosts] = useState([]);
   const service = new AccountService();
   const value = useContext(userContext);
-  const navigate = useNavigate();
 
   async function GetPosts(){
     const response = await axios.get('http://127.0.0.1:8080/tasks/');

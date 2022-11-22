@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
-import { useNavigate } from 'react-router-dom';
 import AccountService from './Services/AccountService';
 import logo from './logo.svg';
 import axios from 'axios';
@@ -12,7 +11,7 @@ import './App.css';
 export default function App() {
   const service = new AccountService();
   const [stateUser, setStateUser] = useState(null);
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const value = {
     user: stateUser,
@@ -35,11 +34,11 @@ export default function App() {
   useEffect(() => {
     const user = service.getUserSession();
 
-    if(user != null){
-      value.user = user;
-      navigate('/posts');
-    }
-    console.log('EFFECT APP.JS');
+    // if(user != null){
+    //   value.user = user;
+    //   navigate('/posts');
+    // }
+    // console.log('EFFECT APP.JS');
     console.log(value.user);
   }, []);
   
