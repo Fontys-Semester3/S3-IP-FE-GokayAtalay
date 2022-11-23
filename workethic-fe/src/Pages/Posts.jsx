@@ -15,7 +15,7 @@ export default function Posts() {
 
   useEffect(() => {
     if(userService.getUserSession() == null){
-      navigate("/");
+      navigate("/login");
     }
 
     GetPosts();

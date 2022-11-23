@@ -30,13 +30,6 @@ export default function App() {
     setStateUser(null);
     setStateUser(null);
   }
-
-  useEffect(() => {
-    user = JSON.parse(service.getUserSession());
-    if(user != null){
-      navigate("/posts");
-    }
-  }, []);
   
   
   return (
@@ -44,7 +37,7 @@ export default function App() {
       <userContext.Provider value={value}>
         <Navbar/>
         <Routes>
-          <Route path='/' element={ user != null ? <Posts/> : <Login />}/>
+          <Route path='/' element={ <Posts/> }/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/posts' element={<Posts/>}/>
         </Routes>
