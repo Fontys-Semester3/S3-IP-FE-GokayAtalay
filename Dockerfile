@@ -8,6 +8,8 @@ COPY . .
 
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
 RUN npm install react-scripts@3.4.1 -g
 
