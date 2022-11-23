@@ -1,7 +1,7 @@
 FROM node:latest
 
 # Set the working directory to /app inside the container
-WORKDIR /app
+WORKDIR /workethic-fe
 
 # Copy app files
 COPY . .
