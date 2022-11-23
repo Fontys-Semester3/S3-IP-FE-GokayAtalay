@@ -8,7 +8,8 @@ COPY . .
 
 # ==== BUILD =====
 # Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-RUN npm ci 
+RUN npm install
+RUN npm install react-scripts@3.4.1 -g
 
 # Build the app
 RUN npm run build
