@@ -1,13 +1,12 @@
-import { React, useState, useContext, useEffect } from 'react'
-import { userContext } from '../userContext';
-import Navbar from '../Components/Navbar'
-import AccountService from '../Services/AccountService';
+import { React, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import UserService from '../Services/UserService';
 
 export default function Posts() {
   const [statePosts, setStatePosts] = useState([]);
-  const service = new AccountService();
-  const value = useContext(userContext);
+  const userService = new UserService();
+  const navigate = useNavigate();
 
   async function GetPosts(){
     const response = await axios.get('http://127.0.0.1:8080/tasks/');
@@ -15,8 +14,8 @@ export default function Posts() {
   }
 
   useEffect(() => {
-    if(Object.keys(value.user).length === 0){
-      value.user = service.getUserSession();
+    if(userService.getUserSession() == null){
+      navigate("/");
     }
 
     GetPosts();
@@ -24,7 +23,6 @@ export default function Posts() {
   
   return (
     <>
-      <Navbar value={value}/>
       <div className='w-full h-[80vh] flex flex-col items-center pt-10'>
           {
               statePosts.map((post, index) => {
