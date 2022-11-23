@@ -37,13 +37,8 @@ jobs:
           CI: ""
     - run: npm test
       
-  docker:
-  
-    runs-on: ubuntu-latest
-    
-    steps:
     - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: tendeza/workethic_s3
         registry: docker.io
