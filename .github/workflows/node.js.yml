@@ -44,6 +44,7 @@ jobs:
         registry: docker.io
         directory: workethic-fe
         dockerfile: workethic-fe/Dockerfile
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/Frontend:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
       
