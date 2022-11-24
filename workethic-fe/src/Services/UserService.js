@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class AccountService extends React.Component {
+export default class UserService extends React.Component {
     constructor(props){
         super(props);
     }

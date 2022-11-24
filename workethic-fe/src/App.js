@@ -1,8 +1,7 @@
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
-import AccountService from './Services/AccountService';
-import logo from './logo.svg';
-import axios from 'axios';
+import AccountService from './Services/UserService';
 import Login from './Pages/Login';
 import Posts from './Pages/Posts';
 import Navbar from './Components/Navbar';
@@ -11,7 +10,8 @@ import './App.css';
 export default function App() {
   const service = new AccountService();
   const [stateUser, setStateUser] = useState(null);
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
+  let user;
 
   const value = {
     user: stateUser,
@@ -30,27 +30,17 @@ export default function App() {
     setStateUser(null);
     setStateUser(null);
   }
-
-  useEffect(() => {
-    const user = service.getUserSession();
-
-    // if(user != null){
-    //   value.user = user;
-    //   navigate('/posts');
-    // }
-    // console.log('EFFECT APP.JS');
-    console.log(value.user);
-  }, []);
   
   
   return (
     <div className="App">
       <userContext.Provider value={value}>
-        {
-          stateUser == null         ?
-            <Login value={value}/>  :
-            <Posts value={value}/>
-        }
+        <Navbar/>
+        <Routes>
+          <Route path='/' element={ <Posts/> }/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/posts' element={<Posts/>}/>
+        </Routes>
       </userContext.Provider>
     </div>
   );
