@@ -1,3 +1,4 @@
+import { Card, CardHeader, CardBody, Flex, Avatar, Box, Heading, Text, Image } from '@chakra-ui/react';
 import { React, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -27,12 +28,26 @@ export default function Posts() {
           {
               statePosts.map((post, index) => {
                 return(
-                  <div key={index} className="mb-3">
-                    <a href="#" className="block p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100">
-                      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">{post.title}</h5>
-                      <p className="font-normal text-gray-700 dark:text-gray-400">{post.body}</p>
-                    </a>
-                  </div>
+                  <Card key={index} width="30%" marginBottom="20px">
+                    <CardHeader paddingLeft="20px" paddingRight="20px" paddingTop="20px" paddingBottom="0px">
+                      <Flex spacing='4'>
+                        <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
+                          <Avatar name='Segun Adebayo' src='https://bit.ly/sage-adebayo' />
+
+                          <Box>
+                            <Heading size='sm'>Segun Adebayo</Heading>
+                            <Text>Creator, Chakra UI</Text>
+                          </Box>
+                        </Flex>
+                      </Flex>
+                    </CardHeader>
+                    <CardBody paddingLeft="10px" paddingRight="10px" paddingTop="10px" paddingBottom="25px">
+                      <Heading marginBottom="5px">{post.title}</Heading>
+                      <Text>
+                        {post.body}
+                      </Text>
+                    </CardBody>
+                  </Card>
                 )
               }) 
           }
