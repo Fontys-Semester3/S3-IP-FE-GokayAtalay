@@ -37,6 +37,12 @@ jobs:
       env: 
           CI: ""
     - run: npm test -- --coverage
+
+    - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       
 #     - name: Build and Push Docker Image
 #       uses: mr-smithers-excellent/docker-build-push@v5
@@ -50,18 +56,18 @@ jobs:
         
         
   # Sonarcloud Analysis      
-  sonarcloud:
-    name: SonarCloud Analyis
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0  
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  # sonarcloud:
+  #   name: SonarCloud Analyis
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         fetch-depth: 0  
+  #     - name: SonarCloud Scan
+  #       uses: SonarSource/sonarcloud-github-action@master
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   dockerhub:
       name: Dockerhub Build and Push
