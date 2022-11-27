@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
 import AccountService from './Services/UserService';
 import Login from './Pages/Login';
-import Posts from './Pages/Posts';
+import Posts from './Pages/Tasks';
 import Navbar from './Components/Navbar';
 import './App.css';
 
