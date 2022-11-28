@@ -10,7 +10,6 @@ import './App.css';
 export default function App() {
   const [stateUser, setStateUser] = useState(null);
   const service = new AccountService();
-  const navigate = useNavigate();
   let user;
 
   const value = {

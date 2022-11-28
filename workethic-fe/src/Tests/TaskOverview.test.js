@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import TasksOverview from '../Components/TasksOverview';
 import Login from '../Pages/Login';
+import App from '../App';
 
 const emptyData = [];
 
@@ -37,3 +38,8 @@ test('renders nothing on screen', () => {
 
   expect(Overview).not.toBeInTheDocument();
 })
+
+test('app displays login', () => {
+  render(<BrowserRouter><App/></BrowserRouter>);
+  expect(screen.getByText('Sign in with Google')).toBeInTheDocument();
+});

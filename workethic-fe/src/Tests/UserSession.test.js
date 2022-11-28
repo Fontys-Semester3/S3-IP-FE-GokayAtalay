@@ -4,6 +4,7 @@ import { createMemoryHistory } from '@remix-run/router';
 import UserService from '../Services/UserService';
 import Navbar from '../Components/Navbar';
 import Tasks from '../Pages/Tasks';
+import App from '../App';
 
 afterEach(cleanup);
 
