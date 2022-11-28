@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { BrowserRouter, Router } from 'react-router-dom';
-import App from '../App';
+import { BrowserRouter } from 'react-router-dom';
 import TasksOverview from '../Components/TasksOverview';
 import Login from '../Pages/Login';
 

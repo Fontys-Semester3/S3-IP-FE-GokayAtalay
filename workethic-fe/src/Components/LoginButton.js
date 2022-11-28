@@ -4,17 +4,17 @@ import { userContext } from '../userContext';
 import { useNavigate } from "react-router-dom";
 import GoogleButton from "react-google-button";
 import axios from "axios";
-import AccountService from "../Services/UserService";
+import UserService from "../Services/UserService";
 
 export const LoginButton = () => {
-    const service = new AccountService();
+    const service = new UserService();
     const value = useContext(userContext);
     const navigate = useNavigate();
 
     function handleLogin(user){
         value.userLogin(user);
         service.setUserSession(JSON.stringify(user));
-        navigate('/posts');
+        navigate('/tasks');
     }
 
     const googleLogin = useGoogleLogin({
