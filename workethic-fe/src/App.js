@@ -3,14 +3,13 @@ import { useState, useEffect } from 'react';
 import { userContext } from "./userContext";
 import AccountService from './Services/UserService';
 import Login from './Pages/Login';
-import Posts from './Pages/Posts';
+import Tasks from './Pages/Tasks';
 import Navbar from './Components/Navbar';
 import './App.css';
 
 export default function App() {
-  const service = new AccountService();
   const [stateUser, setStateUser] = useState(null);
-  const navigate = useNavigate();
+  const service = new AccountService();
   let user;
 
   const value = {
@@ -31,15 +30,18 @@ export default function App() {
     setStateUser(null);
   }
   
-  
+  if(value.user == null && service.getUserSession() != null){
+    value.userLogin(service.getUserSession());
+  }
+
   return (
     <div className="App">
       <userContext.Provider value={value}>
         <Navbar/>
         <Routes>
-          <Route path='/' element={ <Posts/> }/>
+          <Route path='/' element={ <Tasks/> }/>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/posts' element={<Posts/>}/>
+          <Route path='/tasks' element={<Tasks/>}/>
         </Routes>
       </userContext.Provider>
     </div>

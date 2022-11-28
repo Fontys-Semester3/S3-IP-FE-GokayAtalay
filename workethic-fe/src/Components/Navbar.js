@@ -3,7 +3,7 @@ import UserService from '../Services/UserService';
 
 export default function Navbar() {
     const userService = new UserService();
-    const user = JSON.parse(userService.getUserSession());
+    const user = userService.getUserSession();
 
     return (
         <nav className="relative bg-white shadow ">
@@ -19,7 +19,7 @@ export default function Navbar() {
                             user != null ?
                             <>
                             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">
-                                <a href="/posts" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100">Posts</a>
+                                <a href="/tasks" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100">Tasks</a>
                                 <a href="/profiles" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100">Profiles</a>
                             </div>
                             
@@ -35,7 +35,6 @@ export default function Navbar() {
                                 <a href="/login" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100">Login</a>
                             </div>
                         }
-                        
                     </div>
                 </div>
             </div>
