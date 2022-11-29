@@ -14,5 +14,9 @@ export default class UserService extends React.Component {
     getUserSession(){
         return sessionStorage.getItem('sessionUser');
     }
+
+    deleteUserSession(){
+        sessionStorage.removeItem('sessionUser');
+    }
 }
 

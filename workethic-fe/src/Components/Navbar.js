@@ -1,9 +1,19 @@
-import { React } from 'react';
+import { React, useContext } from 'react';
 import UserService from '../Services/UserService';
+import {
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+  } from '@chakra-ui/react'
+import { userContext } from '../userContext';
 
 export default function Navbar() {
     const userService = new UserService();
-    const user = userService.getUserSession();
+    const context = useContext(userContext);
+    const user = JSON.parse(userService.getUserSession());
+    console.log("SESSION:");
+    console.log(user);
 
     return (
         <nav className="relative bg-white shadow ">
@@ -23,12 +33,17 @@ export default function Navbar() {
                                 <a href="/profiles" className="px-3 py-2 mx-3 mt-2 text-gray-700 transition-colors duration-300 transform rounded-md lg:mt-0 hover:bg-gray-100">Profiles</a>
                             </div>
                             
-                            <div className="flex items-center mt-4 lg:mt-0">
-                                <button type="button" className="flex items-center focus:outline-none" aria-label="toggle profile dropdown">
-                                    <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
-                                        <img src={user.picture} className="object-cover w-full h-full" alt="avatar"/>
-                                    </div>
-                                </button>
+                            <div className="flex items-center mt-4 lg:mt-0">  
+                                <Menu>
+                                    <MenuButton>
+                                        <div className="w-8 h-8 overflow-hidden border-2 border-gray-400 rounded-full">
+                                            <img src={user.picture} className="object-cover w-full h-full" alt="avatar" referrerPolicy="no-referrer"/>
+                                        </div>
+                                    </MenuButton>
+                                    <MenuList>
+                                        <MenuItem onClick={() => { context.userLogout() } }>Logout</MenuItem>
+                                    </MenuList>
+                                </Menu>
                             </div>
                             </> :
                             <div className="flex flex-col -mx-6 lg:flex-row lg:items-center lg:mx-8">

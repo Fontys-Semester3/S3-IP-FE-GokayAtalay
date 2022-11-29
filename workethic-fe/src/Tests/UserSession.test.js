@@ -23,7 +23,7 @@ test('navbar shows login menu-item when not logged in', () => {
 
 test('navbar shows tasks after login', () => {
     const service = new UserService();
-    const user = service.setUserSession({name: 'Gökay', sub: '97gh9gn0ih09u6ojhotyij956', email: 'gokayatalay@gmail.com'});
+    service.setUserSession(JSON.stringify({name: 'Gökay', sub: '97gh9gn0ih09u6ojhotyij956', email: 'gokayatalay@gmail.com'}));
 
     render(<Navbar/>);
     expect(screen.getByText('Tasks')).toBeInTheDocument();

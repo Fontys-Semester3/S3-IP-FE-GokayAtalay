@@ -10,6 +10,7 @@ import './App.css';
 export default function App() {
   const [stateUser, setStateUser] = useState(null);
   const service = new AccountService();
+  const navigate = useNavigate();
   let user;
 
   const value = {
@@ -26,8 +27,9 @@ export default function App() {
 
   function LogoutUser(){
     console.log('Logging user out');
+    service.deleteUserSession();
     setStateUser(null);
-    setStateUser(null);
+    navigate("/login");
   }
   
   if(value.user == null && service.getUserSession() != null){
