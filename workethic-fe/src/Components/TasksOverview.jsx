@@ -26,11 +26,10 @@ export default function TasksOverview(props) {
         
         <div className='mt-5 flex flex-col items-center' data-testid="overview-1">
             {stateRandomUser != null && props.data.map((post, index) => {
-                const person = stateRandomUser[index];
-                const name = person.name.first + ' ' + person.name.last;
-                const picture = person.picture.medium;
+                const name = post.userName;
+                const picture = post.userPicture;
                 return(
-                    <div key={index} className='mb-5 w-3/4 md:w-1/2 lg:w-2/6'>
+                    <div key={post.id} className='mb-5 w-3/4 md:w-1/2 lg:w-2/3'>
                         <Card className='w-full'>
                             <CardHeader paddingLeft="20px" paddingRight="20px" paddingTop="20px" paddingBottom="0px">
                             <Flex spacing='4'>
