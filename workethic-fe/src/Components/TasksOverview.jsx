@@ -29,7 +29,7 @@ export default function TasksOverview(props) {
                 const name = post.userName;
                 const picture = post.userPicture;
                 return(
-                    <div key={index} className='mb-5 w-3/4 md:w-1/2 lg:w-full'>
+                    <div key={post.id} className='mb-5 w-3/4 md:w-1/2 lg:w-2/3'>
                         <Card className='w-full'>
                             <CardHeader paddingLeft="20px" paddingRight="20px" paddingTop="20px" paddingBottom="0px">
                             <Flex spacing='4'>
