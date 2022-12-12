@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import TasksOverview from '../Components/TasksOverview';
 import Login from '../Pages/Login';
@@ -25,11 +25,13 @@ test('renders login on screen', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('renders items on screen', () => {
+test('renders items on screen', async () => {
   render(<TasksOverview data={data} />);
 
-  expect(screen.getByText('Task 1')).toBeInTheDocument();
-  expect(screen.getByText('Task 5')).toBeInTheDocument();
+  await waitFor(() => {
+    expect(screen.getByText('Task 1')).toBeInTheDocument();
+    expect(screen.getByText('Task 5')).toBeInTheDocument();
+  })
 });
 
 test('renders nothing on screen', () => {
