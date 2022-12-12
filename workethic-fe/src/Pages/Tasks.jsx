@@ -71,8 +71,9 @@ export default function Tasks() {
             </div>
             : null
           }          
-
-          <TasksOverview data={statePosts} />
+          <div className=''>
+            <TasksOverview data={statePosts} />
+          </div>
       </div>
     </>
   )

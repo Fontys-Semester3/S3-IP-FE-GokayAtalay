@@ -94,4 +94,4 @@ jobs:
           with:
             context: ./workethic-fe
             push: true
-            tags: tendeza/workethic_s3:fe
+            tags: tendeza/workethic-frontend:latest
