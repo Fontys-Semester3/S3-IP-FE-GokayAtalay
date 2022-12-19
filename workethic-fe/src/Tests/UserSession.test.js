@@ -1,6 +1,7 @@
 import { render, screen, cleanup, } from '@testing-library/react';
 import UserService from '../Services/UserService';
 import Navbar from '../Components/Navbar';
+import { BrowserRouter } from 'react-router-dom';
 afterEach(cleanup);
 
 test('no user in session', () => {
@@ -11,7 +12,7 @@ test('no user in session', () => {
 })
 
 test('navbar shows login menu-item when not logged in', () => {
-    render(<Navbar/>);
+    render(<BrowserRouter><Navbar/></BrowserRouter>);
 
     expect(screen.getByText('Login')).toBeInTheDocument();
 })
@@ -20,7 +21,7 @@ test('navbar shows tasks after login', () => {
     const service = new UserService();
     service.setUserSession(JSON.stringify({name: 'Gökay', sub: '97gh9gn0ih09u6ojhotyij956', email: 'gokayatalay@gmail.com'}));
 
-    render(<Navbar/>);
+    render(<BrowserRouter><Navbar/></BrowserRouter>);
     expect(screen.getByText('Tasks')).toBeInTheDocument();
 })
 

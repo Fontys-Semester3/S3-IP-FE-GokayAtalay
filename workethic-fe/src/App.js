@@ -6,6 +6,7 @@ import Login from './Pages/Login';
 import Tasks from './Pages/Tasks';
 import Navbar from './Components/Navbar';
 import './App.css';
+import CreateTask from './Pages/CreateTask';
 
 export default function App() {
   const [stateUser, setStateUser] = useState(null);
@@ -19,31 +20,32 @@ export default function App() {
     userLogout: LogoutUser,
   };
 
-  function LoginUser(userObj){
+  function LoginUser(userObj) {
     console.log('Logging user in');
     console.log(userObj);
     setStateUser(userObj);
   }
 
-  function LogoutUser(){
+  function LogoutUser() {
     console.log('Logging user out');
     service.deleteUserSession();
     setStateUser(null);
     navigate("/login");
   }
-  
-  if(value.user == null && service.getUserSession() != null){
+
+  if (value.user == null && service.getUserSession() != null) {
     value.userLogin(service.getUserSession());
   }
 
   return (
     <div className="App">
       <userContext.Provider value={value}>
-        <Navbar/>
+        <Navbar />
         <Routes>
-          <Route path='/' element={ <Tasks/> }/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/tasks' element={<Tasks/>}/>
+          <Route path='/' element={<Tasks />} />
+          <Route path='/create/task' element={<CreateTask />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/tasks' element={<Tasks />} />
         </Routes>
       </userContext.Provider>
     </div>
