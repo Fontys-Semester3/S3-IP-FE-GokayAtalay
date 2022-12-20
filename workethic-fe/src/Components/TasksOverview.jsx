@@ -1,33 +1,16 @@
-import { Card, CardHeader, CardBody, Flex, Avatar, Box, Heading, Text, Image } from '@chakra-ui/react';
-import { React, useState, useEffect } from 'react';
+import { Card, CardHeader, CardBody, Flex, Avatar, Box, Heading, Text, Image, color } from '@chakra-ui/react';
+import { React } from 'react';
 
 export default function TasksOverview(props) {
-    const [stateRandomUser, setStateRandomUser] = useState(null);
-    async function GetRandomPersons(){
-        try {
-            const response = await fetch('https://randomuser.me/api/?results=100');
-            const data = await response.json();
-            setStateRandomUser(data.results);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        if(stateRandomUser == null){
-            GetRandomPersons();
-        }
-    }, [stateRandomUser])
-    
-    
-
     return( 
         props.data.length > 0 &&
         
         <div className='mt-5 flex flex-col items-center' data-testid="overview-1">
-            {stateRandomUser != null && props.data.map((post, index) => {
+            {props.data.map((post) => {
+                const priority = post.taskPriority.id;
                 const name = post.userName;
                 const picture = post.userPicture;
+
                 return(
                     <div key={post.id} className='mb-5 w-3/4 md:w-1/2 lg:w-2/3'>
                         <Card className='w-full'>
@@ -40,6 +23,7 @@ export default function TasksOverview(props) {
                                     <Heading size='sm'>{ name }</Heading>
                                 </Box>
                                 </Flex>
+                                <Text sx={{color: priority == 0 ? "#f5d400" : priority == 1 ? "#f56200" : "#f50000"}}><strong>{post?.taskPriority?.value}</strong></Text>
                             </Flex>
                             </CardHeader>
                             <CardBody paddingLeft="10px" paddingRight="10px" paddingTop="10px" paddingBottom="25px">
