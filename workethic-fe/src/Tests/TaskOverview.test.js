@@ -8,15 +8,24 @@ const emptyData = [];
 
 const data = [
   { title: "Task 1",
-    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig"},
+    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig",
+    taskPriority: {
+      id: 0,
+      value: "No bueno"
+    }
+  },
   { title: "Task 2",
-    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig"},
+    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig",
+    taskPriority: {
+      id: 1,
+      value: "Bueno"
+    }},
   { title: "Task 3",
-    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig"},
-  { title: "Task 4",
-    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig"},
-  { title: "Task 5",
-    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig"},
+    body: "uihgfgnkfh fogjihofiguh joifgjhu gfoihugfohiujfgo hjoifg uhoifgujhoiufghoif huoifghoifguhf gujhofig",
+    taskPriority: {
+      id: 2,
+      value: "Muy bueno"
+    }}
 ];
 
 test('renders login on screen', () => {
@@ -30,7 +39,10 @@ test('renders items on screen', async () => {
 
   await waitFor(() => {
     expect(screen.getByText('Task 1')).toBeInTheDocument();
-    expect(screen.getByText('Task 5')).toBeInTheDocument();
+    expect(screen.getByText('Task 3')).toBeInTheDocument();
+    expect(screen.getByText('No bueno')).toBeInTheDocument();
+    expect(screen.getByText('Bueno')).toBeInTheDocument();
+    expect(screen.getByText('Muy bueno')).toBeInTheDocument();
   })
 });
 
